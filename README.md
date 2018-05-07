@@ -71,6 +71,7 @@
 ```
 
 At this point you are able to test the program without errors. 
+
 * The code above draws a 4px x 4px rectangle at the mouse position. The mouse position is calculated from the top left of the screen, therefore to get the position inside the picturebox we must subrtact the location of the window, the pictureBox, and the top bar. 
 * Line 6 above shows how to draw pixel by pixel using the set pixel function in the Bitmap class. 
 * The last step to drawing anything wither a pixel or a rectangle is to reset the Picturebox to the new image.
@@ -80,62 +81,62 @@ At this point you are able to test the program without errors.
 
 * Double click the reset buttion to add a click event. Then add the code below. This is identical to the on load event.
 
- ```vb
- 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        gfx.FillRectangle(Brushes.White, 0, 0, PictureBox1.Width, PictureBox1.Height)
-        PictureBox1.Image = bmp
-    End Sub
- 
- ```
- 
- #### Save File Button
- 
- * Add a click event for the Save Button. Then add the code Below.
- 
- ```vb
- 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim saveFileDialog1 As New SaveFileDialog()
+```vb
 
-        saveFileDialog1.Filter = "png files (*.png)|*.png"
-        saveFileDialog1.FilterIndex = 1
-        saveFileDialog1.RestoreDirectory = True
+	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+		gfx.FillRectangle(Brushes.White, 0, 0, PictureBox1.Width, PictureBox1.Height)
+		PictureBox1.Image = bmp
+	End Sub
 
-        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
-            MessageBox.Show("Image Saved to: " & saveFileDialog1.FileName.ToString)
-            bmp.Save(saveFileDialog1.FileName.ToString, System.Drawing.Imaging.ImageFormat.Png)
-        End If
-    End Sub
- 
- ```
- 
- > As stated in our project consept this save button uses the Bitmap.Save() method.
- > Save in this example takes two parameters (full file path including file name ex(C:/Documents/img.png), a image format type ex(.png, .jpg)
- 
- #### Change Graphic Brush Color
- 
- * Add a selected value changed event to the Picture Box. Click events tab in the properties box, then double select SelectedValueChanged. Add the code below to the sub. Test the program and draw, reset, change the color.
+```
+
+#### Save File Button
+
+* Add a click event for the Save Button. Then add the code Below.
+
+```vb
+
+	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+		Dim saveFileDialog1 As New SaveFileDialog()
+
+		saveFileDialog1.Filter = "png files (*.png)|*.png"
+		saveFileDialog1.FilterIndex = 1
+		saveFileDialog1.RestoreDirectory = True
+
+		If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+			MessageBox.Show("Image Saved to: " & saveFileDialog1.FileName.ToString)
+			bmp.Save(saveFileDialog1.FileName.ToString, System.Drawing.Imaging.ImageFormat.Png)
+		End If
+	End Sub
+
+```
+
+> As stated in our project consept this save button uses the Bitmap.Save() method.
+> Save in this example takes two parameters (full file path including file name ex(C:/Documents/img.png), a image format type ex(.png, .jpg)
+
+#### Change Graphic Brush Color
+
+* Add a selected value changed event to the Picture Box. Click events tab in the properties box, then double select SelectedValueChanged. Add the code below to the sub. Test the program and draw, reset, change the color.
 
 ![alt text][img3]
 
- ```vb
- 
-    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
-        Select Case ComboBox1.SelectedIndex
-            Case 2
-                color = Brushes.Red
-            Case 1
-                color = Brushes.Blue
-            Case 0
-                color = Brushes.Black
-        End Select
-    End Sub
- 
- ```
- 
- > This sub is called every time a new value is selected.
- > The select case changes the color gloabal variable to a different color using Brushes.
+```vb
+
+	Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+		Select Case ComboBox1.SelectedIndex
+			Case 2
+				color = Brushes.Red
+			Case 1
+				color = Brushes.Blue
+			Case 0
+				color = Brushes.Black
+		End Select
+	End Sub
+
+```
+
+> This sub is called every time a new value is selected.
+> The select case changes the color gloabal variable to a different color using Brushes.
 
 [img1]: img/fimg1.png "Tutorial img 1 shows a visual of above text. Created by Caleb Wagner."
 [img2]: img/fimg2.png "Tutorial img 2 shows a visual of above text. Created by Caleb Wagner."

@@ -23,7 +23,7 @@
 <blockquote>
 <p>Graphics is the class used to draw various shapes and objects such as a line, rectangle, or circle.</p>
 </blockquote>
-<h3 id="project-consept">Project Consept</h3>
+<h3 id="project-concept">Project Concept</h3>
 <blockquote>
 <p>To create the paint program we will use the bitmap and graphics classes to set a painting area inside an Image box. Then we will detect when the user is inside the image box and clicking the left mouse button. If that is the case then we will use the graphics class to draw a square right at the position of the mouse. We will then allow the user to save the image using the bitmap save method and the save dialog.</p>
 </blockquote>
@@ -77,41 +77,45 @@
         End If
     End Sub
 </code></pre>
-<blockquote>
-<p>At this point you are able to test the program without errors. * The code above draws a 4px x 4px rectangle at the mouse position. The mouse position is calculated from the top left of the screen, therefore to get the position inside the picturebox we must subrtact the location of the window, the pictureBox, and the top bar. * Line 6 above shows how to draw pixel by pixel using the set pixel function in the Bitmap class. * The last step to drawing anything wither a pixel or a rectangle is to reset the Picturebox to the new image. * All is put in a try catch to avoid the error thrown when the user is outside of the picture box.</p>
-</blockquote>
+<p>At this point you are able to test the program without errors.</p>
+<ul>
+<li>The code above draws a 4px x 4px rectangle at the mouse position. The mouse position is calculated from the top left of the screen, therefore to get the position inside the picturebox we must subrtact the location of the window, the pictureBox, and the top bar.</li>
+<li>Line 6 above shows how to draw pixel by pixel using the set pixel function in the Bitmap class.</li>
+<li>The last step to drawing anything wither a pixel or a rectangle is to reset the Picturebox to the new image.</li>
+<li>All is put in a try catch to avoid the error thrown when the user is outside of the picture box.</li>
+</ul>
 <h4 id="reset-button">Reset Button</h4>
 <ul>
 <li>Double click the reset buttion to add a click event. Then add the code below. This is identical to the on load event.</li>
 </ul>
-<p>```vb</p>
-<pre><code>Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-    gfx.FillRectangle(Brushes.White, 0, 0, PictureBox1.Width, PictureBox1.Height)
-    PictureBox1.Image = bmp
-End Sub</code></pre>
-<p>```</p>
-<p>#### Save File Button</p>
+<pre class="vb"><code>
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        gfx.FillRectangle(Brushes.White, 0, 0, PictureBox1.Width, PictureBox1.Height)
+        PictureBox1.Image = bmp
+    End Sub
+</code></pre>
+<h4 id="save-file-button">Save File Button</h4>
 <ul>
 <li>Add a click event for the Save Button. Then add the code Below.</li>
 </ul>
-<p>```vb</p>
-<pre><code>Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-    Dim saveFileDialog1 As New SaveFileDialog()
+<pre class="vb"><code>
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim saveFileDialog1 As New SaveFileDialog()
 
-    saveFileDialog1.Filter = &quot;png files (*.png)|*.png&quot;
-    saveFileDialog1.FilterIndex = 1
-    saveFileDialog1.RestoreDirectory = True
+        saveFileDialog1.Filter = &quot;png files (*.png)|*.png&quot;
+        saveFileDialog1.FilterIndex = 1
+        saveFileDialog1.RestoreDirectory = True
 
-    If saveFileDialog1.ShowDialog() = DialogResult.OK Then
-        MessageBox.Show(&quot;Image Saved to: &quot; &amp; saveFileDialog1.FileName.ToString)
-        bmp.Save(saveFileDialog1.FileName.ToString, System.Drawing.Imaging.ImageFormat.Png)
-    End If
-End Sub</code></pre>
-<p>```</p>
+        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+            MessageBox.Show(&quot;Image Saved to: &quot; &amp; saveFileDialog1.FileName.ToString)
+            bmp.Save(saveFileDialog1.FileName.ToString, System.Drawing.Imaging.ImageFormat.Png)
+        End If
+    End Sub
+</code></pre>
 <blockquote>
 <p>As stated in our project consept this save button uses the Bitmap.Save() method. Save in this example takes two parameters (full file path including file name ex(C:/Documents/img.png), a image format type ex(.png, .jpg)</p>
 </blockquote>
-<p>#### Change Graphic Brush Color</p>
+<h4 id="change-graphic-brush-color">Change Graphic Brush Color</h4>
 <ul>
 <li>Add a selected value changed event to the Picture Box. Click events tab in the properties box, then double select SelectedValueChanged. Add the code below to the sub. Test the program and draw, reset, change the color.</li>
 </ul>
@@ -119,18 +123,18 @@ End Sub</code></pre>
 <img src="img/fimg3.png" title="Tutorial img 3 shows a visual of above text. Created by Caleb Wagner." alt="alt text" />
 <p class="caption">alt text</p>
 </div>
-<p>```vb</p>
-<pre><code>Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
-    Select Case ComboBox1.SelectedIndex
-        Case 2
-            color = Brushes.Red
-        Case 1
-            color = Brushes.Blue
-        Case 0
-            color = Brushes.Black
-    End Select
-End Sub</code></pre>
-<p>```</p>
+<pre class="vb"><code>
+    Private Sub ComboBox1_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedValueChanged
+        Select Case ComboBox1.SelectedIndex
+            Case 2
+                color = Brushes.Red
+            Case 1
+                color = Brushes.Blue
+            Case 0
+                color = Brushes.Black
+        End Select
+    End Sub
+</code></pre>
 <blockquote>
 <p>This sub is called every time a new value is selected. The select case changes the color gloabal variable to a different color using Brushes.</p>
 </blockquote>
