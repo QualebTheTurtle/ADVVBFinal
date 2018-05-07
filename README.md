@@ -137,8 +137,8 @@
  > This sub is called every time a new value is selected.
  > The select case changes the color gloabal variable to a different color using Brushes.
 
-[img1]: img/imgf1.jpg "Tutorial img 1 shows a visual of above text. Created by Caleb Wagner."
-[img2]: img/imgf2.png "Tutorial img 2 shows a visual of above text. Created by Caleb Wagner."
-[img3]: img/imgf3.png "Tutorial img 3 shows a visual of above text. Created by Caleb Wagner."
-[img4]: img/imgf4.png "Tutorial img 4 shows a visual of above text. Created by Caleb Wagner."
+[img1]: img/fimg1.jpg "Tutorial img 1 shows a visual of above text. Created by Caleb Wagner."
+[img2]: img/fimg2.png "Tutorial img 2 shows a visual of above text. Created by Caleb Wagner."
+[img3]: img/fimg3.png "Tutorial img 3 shows a visual of above text. Created by Caleb Wagner."
+[img4]: img/fimg4.png "Tutorial img 4 shows a visual of above text. Created by Caleb Wagner."
 
