@@ -12,7 +12,7 @@
 
 > Graphics is the class used to draw various shapes and objects such as a line, rectangle, or circle.
 
-### Project Consept
+### Project Concept
 
 > To create the paint program we will use the bitmap and graphics classes to set a painting area inside an Image box. Then we will detect when the user is inside the image box and clicking the left mouse button. If that is the case then we will use the graphics class to draw a square right at the position of the mouse. We will then allow the user to save the image using the bitmap save method and the save dialog.
 
@@ -70,11 +70,11 @@
 
 ```
 
-> At this point you are able to test the program without errors. 
-> * The code above draws a 4px x 4px rectangle at the mouse position. The mouse position is calculated from the top left of the screen, therefore to get the position inside the picturebox we must subrtact the location of the window, the pictureBox, and the top bar. 
-> * Line 6 above shows how to draw pixel by pixel using the set pixel function in the Bitmap class. 
-> * The last step to drawing anything wither a pixel or a rectangle is to reset the Picturebox to the new image.
-> * All is put in a try catch to avoid the error thrown when the user is outside of the picture box.
+At this point you are able to test the program without errors. 
+* The code above draws a 4px x 4px rectangle at the mouse position. The mouse position is calculated from the top left of the screen, therefore to get the position inside the picturebox we must subrtact the location of the window, the pictureBox, and the top bar. 
+* Line 6 above shows how to draw pixel by pixel using the set pixel function in the Bitmap class. 
+* The last step to drawing anything wither a pixel or a rectangle is to reset the Picturebox to the new image.
+* All is put in a try catch to avoid the error thrown when the user is outside of the picture box.
 
 #### Reset Button
 
